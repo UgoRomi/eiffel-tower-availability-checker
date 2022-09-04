@@ -13,9 +13,9 @@ const checkAvailability = async () => {
       pass: process.env.APP_PASSWORD,
     },
   });
-  const from = new Date(2022, 10, 10)
+  const from = new Date(2022, 9, 10)
 
-  const to = new Date(2022, 10, 15);
+  const to = new Date(2022, 9, 15);
 
   const url = `https://ticket.toureiffel.paris/get-calendar-by-month?year=2022&month=10`;
   console.log(`calling ${url}`);
@@ -27,7 +27,7 @@ const checkAvailability = async () => {
   if (datesInInterval.length > 0) {
     let emailSubject = '';
     for (const availableDay of datesInInterval) {
-      emailSubject += `${new Date(availableDay.Date).toLocaleDateString(
+      emailSubject += `${new Date(availableDay).toLocaleDateString(
         'it-IT'
       )} `;
     }
